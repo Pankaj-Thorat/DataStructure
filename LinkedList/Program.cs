@@ -6,16 +6,20 @@ using System.Threading.Tasks;
 
 namespace LinkedList
 {
-    internal class Program
+    class Program
     {
         static void Main(string[] args)
         {
             LinkedList myList = new LinkedList();
-            //To add
-            myList.Add(56);
-            myList.Add(30);
-            myList.Add(70);
-            //To display
+            Node node70 = new Node(70);
+            myList.Add(node70);
+
+            Node node30 = new Node(30);
+            myList.AddAfter(node70, node30);
+
+            Node node56 = new Node(56);
+            myList.AddAfter(node30, node56);
+
             myList.Display();
         }
 

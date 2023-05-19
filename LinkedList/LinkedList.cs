@@ -7,17 +7,15 @@ using System.Xml.Linq;
 
 namespace LinkedList
 {
-    internal class LinkedList
+    class LinkedList
     {
         private Node head;
         //To insert
-        public void Add(int value)
+        public void Add(Node node)
         {
-            Node newNode = new Node(value);
-
             if (head == null)
             {
-                head = newNode;
+                head = node;
             }
             else
             {
@@ -26,9 +24,22 @@ namespace LinkedList
                 {
                     current = current.Next;
                 }
-                current.Next = newNode;
+                current.Next = node;
             }
         }
+        //To add after
+        public void AddAfter(Node node, Node newNode)
+        {
+            if (node == null)
+            {
+                Console.WriteLine("Cannot add after a null node.");
+                return;
+            }
+
+            newNode.Next = node.Next;
+            node.Next = newNode;
+        }
+
         // To display
         public void Display()
         {
